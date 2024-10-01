@@ -1,0 +1,25 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+ArchitecturalGame/.vs
+
+ArchitecturalGame/Temp
+
+ArchitecturalGame/Library
+ArchitecturalGame/.idea
+ArchitecturalGame/Assembly-CSharp.csproj
+ArchitecturalGame/Assembly-CSharp-Editor.csproj
+ArchitecturalGame/ArchitecturalGame.sln
+ArchitecturalGame/ArchitecturalGame.csproj
+ArchitecturalGame/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
+ArchitecturalGame/Logs
+
+ArchitecturalGame/obj
+
+.vs
+/builds
+ArchitecturalGame/Assets/Plugins/Editor/JetBrains
+
+*.csproj
+
+# Build related
+Cake/tools/**
+Cake/!tools/packages.config
