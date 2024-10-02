@@ -1,12 +1,12 @@
-using System;
 using CodeBase.Logic;
+using System;
 using UnityEngine;
 
-namespace CodeBase.Hero
+namespace CodeBase.Hero.Animator
 {
 	public class HeroAnimator : MonoBehaviour, IAnimationStateReader
 	{
-		public Animator Animator;
+		public UnityEngine.Animator Animator;
 		public CharacterController CharacterController;
 
 		public event Action<AnimatorState> StateEntered;
@@ -14,16 +14,16 @@ namespace CodeBase.Hero
 
 		public AnimatorState State { get; private set; }
 
-		private static readonly int MoveHash = Animator.StringToHash("Walking");
-		private static readonly int AttackHash = Animator.StringToHash("AttackNormal");
-		private static readonly int HitHash = Animator.StringToHash("Hit");
-		private static readonly int DieHash = Animator.StringToHash("Die");
+		private static readonly int MoveHash = UnityEngine.Animator.StringToHash("Walking");
+		private static readonly int AttackHash = UnityEngine.Animator.StringToHash("AttackNormal");
+		private static readonly int HitHash = UnityEngine.Animator.StringToHash("Hit");
+		private static readonly int DieHash = UnityEngine.Animator.StringToHash("Die");
 
-		private readonly int _idleStateHash = Animator.StringToHash("Idle");
-		private readonly int _idleStateFullHash = Animator.StringToHash("Base Layer.Idle");
-		private readonly int _attackStateHash = Animator.StringToHash("Attack Normal");
-		private readonly int _walkingStateHash = Animator.StringToHash("Run");
-		private readonly int _deathStateHash = Animator.StringToHash("Die");
+		private readonly int _idleStateHash = UnityEngine.Animator.StringToHash("Idle");
+		private readonly int _idleStateFullHash = UnityEngine.Animator.StringToHash("Base Layer.Idle");
+		private readonly int _attackStateHash = UnityEngine.Animator.StringToHash("Attack Normal");
+		private readonly int _walkingStateHash = UnityEngine.Animator.StringToHash("Run");
+		private readonly int _deathStateHash = UnityEngine.Animator.StringToHash("Die");
 
 		private void Update()
 		{

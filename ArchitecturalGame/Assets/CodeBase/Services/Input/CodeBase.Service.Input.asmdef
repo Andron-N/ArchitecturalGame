@@ -1,0 +1,17 @@
+{
+    "name": "CodeBase.Service.Input",
+    "rootNamespace": "",
+    "references": [
+        "SimpleInput.Runtime",
+        "SimpleInput.Editor"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

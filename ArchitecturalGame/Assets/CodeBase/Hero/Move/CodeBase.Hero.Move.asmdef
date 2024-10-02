@@ -1,0 +1,19 @@
+{
+    "name": "CodeBase.Hero.Move",
+    "rootNamespace": "",
+    "references": [
+        "CameraLogic",
+        "CodeBase.Service.Input",
+        "CodeBase.Infrastructure",
+        "CodeBase"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

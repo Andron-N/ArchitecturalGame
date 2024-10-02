@@ -1,0 +1,16 @@
+{
+    "name": "CodeBase.Infrastructure",
+    "rootNamespace": "",
+    "references": [
+        "CodeBase.Service.Input"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

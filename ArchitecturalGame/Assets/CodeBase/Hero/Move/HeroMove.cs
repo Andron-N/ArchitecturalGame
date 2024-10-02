@@ -3,7 +3,7 @@ using CodeBase.Infrastructure;
 using CodeBase.Services.Input;
 using UnityEngine;
 
-namespace CodeBase.Hero
+namespace CodeBase.Hero.Move
 {
 	public class HeroMove : MonoBehaviour
 	{
