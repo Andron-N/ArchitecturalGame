@@ -10,7 +10,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 end_of_line = lf
 # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules
-csharp_new_line_before_open_brace = all
+csharp_new_line_before_open_brace = accessors,anonymous_methods,control_blocks,events,indexers,lambdas,local_functions,methods,properties,types
 csharp_new_line_before_else = true
 csharp_new_line_before_catch = true
 csharp_new_line_before_finally = true
@@ -47,14 +47,19 @@ csharp_preserve_single_line_blocks = true
 csharp_using_directive_placement = outside_namespace
 
 # ReSharper properties
+resharper_accessor_declaration_braces = next_line
+resharper_accessor_owner_declaration_braces = next_line
 resharper_align_multiline_calls_chain = true
 resharper_csharp_align_multiline_extends_list = false
+resharper_csharp_anonymous_method_declaration_braces = next_line
 resharper_csharp_indent_invocation_pars = none
 resharper_csharp_indent_method_decl_pars = none
 resharper_csharp_indent_size = 2
 resharper_csharp_indent_statement_pars = none
 resharper_csharp_indent_style = tab
+resharper_csharp_invocable_declaration_braces = next_line
 resharper_csharp_tab_width = 2
+resharper_csharp_type_declaration_braces = next_line
 resharper_csharp_wrap_multiple_type_parameter_constraints_style = wrap_if_long
 resharper_force_chop_compound_do_expression = false
 resharper_force_chop_compound_if_expression = false
@@ -63,6 +68,7 @@ resharper_indent_pars = none
 resharper_indent_primary_constructor_decl_pars = none
 resharper_indent_typearg_angles = none
 resharper_indent_typeparam_angles = none
+resharper_initializer_braces = end_of_line
 resharper_keep_existing_expr_member_arrangement = true
 resharper_place_expr_method_on_single_line = if_owner_is_single_line
 resharper_place_expr_property_on_single_line = if_owner_is_single_line
