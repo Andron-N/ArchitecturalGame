@@ -2,7 +2,8 @@
     "name": "CodeBase.Infrastructure",
     "rootNamespace": "",
     "references": [
-        "CodeBase.Service.Input"
+        "CodeBase.Service.Input",
+        "CameraLogic"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

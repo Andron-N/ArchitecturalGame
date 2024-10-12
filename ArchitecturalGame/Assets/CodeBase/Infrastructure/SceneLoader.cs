@@ -23,7 +23,6 @@ namespace CodeBase.Infrastructure
 				yield break;
 			}
 
-
 			AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextScene);
 
 			while(!waitNextScene.isDone)
