@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "CodeBase.Service.Input",
-        "CameraLogic"
+        "CameraLogic",
+        "CodeBase.Logic"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
