@@ -5,9 +5,9 @@ namespace CodeBase.Infrastructure.Fabric
 {
 	public class GameFactory : IGameFactory
 	{
-		private readonly IAssetProvider _asset;
+		private readonly IAssets _asset;
 
-		public GameFactory(IAssetProvider asset)
+		public GameFactory(IAssets asset)
 		{
 			_asset = asset;
 		}

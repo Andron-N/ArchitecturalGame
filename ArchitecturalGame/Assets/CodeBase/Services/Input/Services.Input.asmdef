@@ -1,4 +1,17 @@
 {
-	"name": "Services.Input",
-	"references":[ "GUID:16a35b22bcb3d68408bec3de04e2d6ca" ]
+    "name": "Services.Input",
+    "rootNamespace": "",
+    "references": [
+        "SimpleInput.Runtime",
+        "Infrastructure"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

@@ -1,4 +1,16 @@
 {
-	"name": "Hero.Animator",
-	"references":[ "GUID:331872073fe870b468b6c9ac97f9fd51" ]
+    "name": "Hero.Animator",
+    "rootNamespace": "",
+    "references": [
+        "Logic"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

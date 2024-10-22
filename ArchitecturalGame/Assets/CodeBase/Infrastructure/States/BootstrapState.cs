@@ -1,4 +1,7 @@
-﻿using CodeBase.Services.Input;
+﻿using CodeBase.Infrastructure.AssetManagement;
+using CodeBase.Infrastructure.Fabric;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Services.Input;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.States
@@ -33,10 +36,11 @@ namespace CodeBase.Infrastructure.States
 
 		private void RegisterServices()
 		{
-			Game.InputService = RegisterInputService();
+			AllServices.Container.RegisterSingle<IInputService>(InputService());
+			AllServices.Container.RegisterSingle<IGameFactory>(new GameFactory(AllServices.Container.Single<IAssets>()));
 		}
 
-		private static IInputService RegisterInputService()
+		private static IInputService InputService()
 		{
 			if(Application.isEditor)
 				return new StandaloneInputService();
