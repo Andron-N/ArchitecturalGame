@@ -1,0 +1,4 @@
+{
+	"name": "Hero.Move",
+	"references":[ "GUID:f9d3e38345d6774438707b255ad392d9", "GUID:f191eed45543cef489760ccc8f6dbee6", "GUID:62d6f7bebe1a22746a9403bfebf27647" ]
+}
