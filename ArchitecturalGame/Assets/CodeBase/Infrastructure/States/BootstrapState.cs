@@ -12,16 +12,19 @@ namespace CodeBase.Infrastructure.States
 
 		private readonly GameStateMachine _stateMachine;
 		private readonly SceneLoader _sceneLoader;
+		private readonly AllServices _services;
 
-		public BootstrapState(GameStateMachine stateMachine, SceneLoader sceneLoader)
+		public BootstrapState(GameStateMachine stateMachine, SceneLoader sceneLoader, AllServices services)
 		{
 			_stateMachine = stateMachine;
 			_sceneLoader = sceneLoader;
+			_services = services;
+
+			RegisterServices();
 		}
 
 		public void Enter()
 		{
-			RegisterServices();
 			_sceneLoader.Load(Initial, onLoaded: EnterLoadLevel);
 		}
 
@@ -36,8 +39,9 @@ namespace CodeBase.Infrastructure.States
 
 		private void RegisterServices()
 		{
-			AllServices.Container.RegisterSingle<IInputService>(InputService());
-			AllServices.Container.RegisterSingle<IGameFactory>(new GameFactory(AllServices.Container.Single<IAssets>()));
+			_services.RegisterSingle<IInputService>(InputService());
+			_services.RegisterSingle<IAssets>(new AssetProvider());
+			_services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>()));
 		}
 
 		private static IInputService InputService()
