@@ -5,17 +5,17 @@ namespace CodeBase.Infrastructure.Fabric
 {
 	public class GameFactory : IGameFactory
 	{
-		private readonly IAssets _asset;
+		private readonly IAssetProvider _assetProvider;
 
-		public GameFactory(IAssets asset)
+		public GameFactory(IAssetProvider assetProvider)
 		{
-			_asset = asset;
+			_assetProvider = assetProvider;
 		}
 
 		public GameObject CreateHero(GameObject at) =>
-			_asset.Instantiate(AssetPath.HeroPath, at: at.transform.position);
+			_assetProvider.Instantiate(AssetPath.HeroPath, at: at.transform.position);
 
 		public void CreateHud() =>
-			_asset.Instantiate(AssetPath.HudPath);
+			_assetProvider.Instantiate(AssetPath.HudPath);
 	}
 }

@@ -16,5 +16,4 @@ namespace CodeBase.Services.Input
 		protected static Vector2 SimpleInputAxis() =>
 			new(SimpleInput.GetAxis(Horizontal), SimpleInput.GetAxis(Vertical));
 	}
-
 }

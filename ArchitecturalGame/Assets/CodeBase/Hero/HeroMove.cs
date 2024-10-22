@@ -2,19 +2,24 @@ using CodeBase.Infrastructure.Services;
 using CodeBase.Services.Input;
 using UnityEngine;
 
-namespace CodeBase.Hero.Move
+namespace CodeBase.Hero
 {
 	public class HeroMove : MonoBehaviour
 	{
-		public CharacterController CharacterController;
-
+		[SerializeField] private CharacterController _characterController;
 		[SerializeField] private float _movementSpeed;
 
 		private IInputService _inputService;
+		private Camera _camera;
 
 		private void Awake()
 		{
 			_inputService = AllServices.Container.Single<IInputService>();
+		}
+
+		private void Start()
+		{
+			_camera = Camera.main;
 		}
 
 		private void Update()
@@ -23,7 +28,7 @@ namespace CodeBase.Hero.Move
 
 			if(_inputService.Axis.sqrMagnitude > Constants.Epsilon)
 			{
-				movementVector = Camera.main.transform.TransformDirection(_inputService.Axis);
+				movementVector = _camera.transform.TransformDirection(_inputService.Axis);
 				movementVector.y = 0;
 				movementVector.Normalize();
 
@@ -32,10 +37,7 @@ namespace CodeBase.Hero.Move
 
 			movementVector += Physics.gravity;
 
-			CharacterController.Move(movementVector * (_movementSpeed * Time.deltaTime));
+			_characterController.Move(movementVector * (_movementSpeed * Time.deltaTime));
 		}
-
-
-
 	}
 }

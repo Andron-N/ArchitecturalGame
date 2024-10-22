@@ -40,8 +40,8 @@ namespace CodeBase.Infrastructure.States
 		private void RegisterServices()
 		{
 			_services.RegisterSingle<IInputService>(InputService());
-			_services.RegisterSingle<IAssets>(new AssetProvider());
-			_services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>()));
+			_services.RegisterSingle<IAssetProvider>(new AssetProvider());
+			_services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>()));
 		}
 
 		private static IInputService InputService()

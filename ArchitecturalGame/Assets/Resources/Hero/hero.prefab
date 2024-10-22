@@ -1405,8 +1405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b4024fa63c4039b3ed513573f9f84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 9588594}
-  CharacterController: {fileID: 132465601797891139}
+  _animator: {fileID: 9588594}
+  _characterController: {fileID: 132465601797891139}
 --- !u!114 &4645601776738182063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40f18a5df981b1438bb7722e055cae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterController: {fileID: 132465601797891139}
+  _characterController: {fileID: 132465601797891139}
   _movementSpeed: 4
 --- !u!1 &178646
 GameObject:

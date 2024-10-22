@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42363cf751c4b22a654128493b87e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationAngleX: 0
-  Distance: 0
-  OffsetY: 0
-  _following: {fileID: 0}
+  _rotationAngleX: 55
+  _distance: 10
+  _offsetY: 0.5
