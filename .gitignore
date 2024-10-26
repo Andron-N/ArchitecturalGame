@@ -1,25 +1,72 @@
-# Add any directories, files, or patterns you don't want to be tracked by version control
-ArchitecturalGame/.vs
+# Этот файл .gitignore должен быть размещен в корне вашего проекта Unity
+#
+# Получить последнюю версию можно по адресу: https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+/ArchitecturalGame/[Ll]ibrary/
+/ArchitecturalGame/[Tt]emp/
+/ArchitecturalGame/[Oo]bj/
+/ArchitecturalGame/[Bb]uild/
+/ArchitecturalGame/[Bb]uilds/
+/ArchitecturalGame/[Ll]ogs/
+/ArchitecturalGame/[Uu]ser[Ss]ettings/
 
-ArchitecturalGame/Temp
+# MemoryCaptures могут занимать слишком много места.
+# Они также могут содержать крайне чувствительные данные.
+/ArchitecturalGame/[Mm]emoryCaptures/
 
-ArchitecturalGame/Library
-ArchitecturalGame/.idea
-ArchitecturalGame/Assembly-CSharp.csproj
-ArchitecturalGame/Assembly-CSharp-Editor.csproj
-ArchitecturalGame/ArchitecturalGame.sln
-ArchitecturalGame/ArchitecturalGame.csproj
-ArchitecturalGame/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
-ArchitecturalGame/Logs
+# Записи могут занимать слишком много места.
+/ArchitecturalGame/[Rr]ecordings/
 
-ArchitecturalGame/obj
+# Раскомментируйте эту строку, если хотите игнорировать плагин инструментов магазина активов
+# /ArchitecturalGame/[Aa]ssets/AssetStoreTools*
 
-.vs
-/builds
-ArchitecturalGame/Assets/Plugins/Editor/JetBrains
+# Автогенерируемый плагин Jetbrains Rider
+/ArchitecturalGame/[Aa]ssets/Plugins/Editor/JetBrains*/
 
-*.csproj
+# Каталог кеша Visual Studio
+/ArchitecturalGame/.vs/
 
-# Build related
-Cake/tools/**
-Cake/!tools/packages.config
+# Каталог кеша Gradle
+/ArchitecturalGame/.gradle/
+
+# Автогенерируемые файлы решения и проекта VS/MD/Consulo
+/ArchitecturalGame/ExportedObj/
+/ArchitecturalGame/.consulo/
+/ArchitecturalGame/*.csproj
+/ArchitecturalGame/*.unityproj
+/ArchitecturalGame/*.sln
+/ArchitecturalGame/*.suo
+/ArchitecturalGame/*.tmp
+/ArchitecturalGame/*.user
+/ArchitecturalGame/*.userprefs
+/ArchitecturalGame/*.pidb
+/ArchitecturalGame/*.booproj
+/ArchitecturalGame/*.svd
+/ArchitecturalGame/*.pdb
+/ArchitecturalGame/*.mdb
+/ArchitecturalGame/*.opendb
+/ArchitecturalGame/*.VC.db
+
+# Сгенерированные метафайлы Unity3D
+/ArchitecturalGame/*.pidb.meta
+/ArchitecturalGame/*.pdb.meta
+/ArchitecturalGame/*.mdb.meta
+
+# Файл, сгенерированный Unity3D при сбоях
+/ArchitecturalGame/sysinfo.txt
+
+# Сборки
+/ArchitecturalGame/*.apk
+/ArchitecturalGame/*.aab
+/ArchitecturalGame/*.unitypackage
+/ArchitecturalGame/*.app
+
+# Файл, сгенерированный Crashlytics
+/ArchitecturalGame/crashlytics-build.properties
+
+# Упакованные Addressables
+/ArchitecturalGame/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Временные автогенерируемые Android Assets
+/ArchitecturalGame/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/ArchitecturalGame/[Aa]ssets/[Ss]treamingAssets/aa/*
