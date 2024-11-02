@@ -2,6 +2,7 @@
 using CodeBase.Infrastructure.Fabric;
 using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.PersistentProgress;
+using CodeBase.Infrastructure.Services.SaveLoad;
 using CodeBase.Services.Input;
 using UnityEngine;
 
@@ -24,25 +25,22 @@ namespace CodeBase.Infrastructure.States
 			RegisterServices();
 		}
 
-		public void Enter()
-		{
+		public void Enter() =>
 			_sceneLoader.Load(Initial, onLoaded: EnterLoadLevel);
-		}
-
-		private void EnterLoadLevel()
-		{
-			_stateMachine.Enter<LoadLevelState, string>("Main");
-		}
 
 		public void Exit()
 		{
 		}
+
+		private void EnterLoadLevel() =>
+			_stateMachine.Enter<LoadProgressState>();
 
 		private void RegisterServices()
 		{
 			_services.RegisterSingle<IInputService>(InputService());
 			_services.RegisterSingle<IAssetProvider>(new AssetProvider());
 			_services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+			_services.RegisterSingle<ISaveLoadService>(new SaveLoadService());
 			_services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>()));
 		}
 
