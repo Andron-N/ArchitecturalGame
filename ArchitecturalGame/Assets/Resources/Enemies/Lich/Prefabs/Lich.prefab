@@ -397,10 +397,16 @@ GameObject:
   - component: {fileID: 95206231959375140}
   - component: {fileID: 502331250075994334}
   - component: {fileID: 4922263076014127179}
+<<<<<<< HEAD
   - component: {fileID: 8264883440936105867}
   - component: {fileID: 6181377880701476881}
   - component: {fileID: 1607248118646567505}
   - component: {fileID: 3823959829957164045}
+||||||| 087d73c
+=======
+  - component: {fileID: 8264883440936105867}
+  - component: {fileID: 1607248118646567505}
+>>>>>>> origin/Enemies
   m_Layer: 0
   m_Name: Lich
   m_TagString: Untagged
@@ -482,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 95206231959375140}
+<<<<<<< HEAD
 --- !u!114 &8264883440936105867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +544,36 @@ MonoBehaviour:
   _triggerObserver: {fileID: 3845725337529562686}
   _follow: {fileID: 8264883440936105867}
   _cooldown: 2
+||||||| 087d73c
+=======
+--- !u!114 &8264883440936105867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500939411536426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0905fea5778046b2a0f7d6be1de6f230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 502331250075994334}
+--- !u!114 &1607248118646567505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500939411536426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35562bdba6f42f2841ed40eb6895cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 502331250075994334}
+  _animator: {fileID: 4922263076014127179}
+>>>>>>> origin/Enemies
 --- !u!1 &1537370055453520
 GameObject:
   m_ObjectHideFlags: 0
