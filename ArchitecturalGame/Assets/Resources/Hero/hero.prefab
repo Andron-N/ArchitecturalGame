@@ -1321,6 +1321,10 @@ GameObject:
   - component: {fileID: 2679486485729903710}
   - component: {fileID: 1941000699}
   - component: {fileID: 4645601776738182063}
+  - component: {fileID: -3053859087299834311}
+  - component: {fileID: 8564250140335638157}
+  - component: {fileID: 2431307627876861659}
+  - component: {fileID: 9072269119340179332}
   m_Layer: 12
   m_Name: hero
   m_TagString: Player
@@ -1471,6 +1475,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterController: {fileID: 132465601797891139}
   _movementSpeed: 6
+--- !u!114 &-3053859087299834311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8cb22a719ebee43a00785129d76205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1941000699}
+--- !u!114 &8564250140335638157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40e4292d25d4e6ca341a8073b9a93d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: -3053859087299834311}
+  _move: {fileID: 4645601776738182063}
+  _attack: {fileID: 9072269119340179332}
+  _animator: {fileID: 1941000699}
+  _deathFx: {fileID: 100006, guid: 2a474af3f4c27be4e9bdce39cfe4315d, type: 3}
+--- !u!114 &2431307627876861659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f551dab01d84a1dab8925bd0f0f068f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+--- !u!114 &9072269119340179332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4646f2175fdf4be2aabb397c02d9e2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroAnimator: {fileID: 1941000699}
+  _characterController: {fileID: 132465601797891139}
 --- !u!1 &178646
 GameObject:
   m_ObjectHideFlags: 0

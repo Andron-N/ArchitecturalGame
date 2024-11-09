@@ -289,7 +289,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 6e-44, z: 1.5e-44, w: 1.1929e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -1170,6 +1170,11 @@ PrefabInstance:
       propertyPath: _follow
       value: 
       objectReference: {fileID: 1472671455}
+    - target: {fileID: 4554414600861588579, guid: 274c4c35ed05ea14c87492064b3cadfd,
+        type: 3}
+      propertyPath: _follow
+      value: 
+      objectReference: {fileID: 1472671455}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1407,6 +1412,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3823959829957164045, guid: 274c4c35ed05ea14c87492064b3cadfd,
+        type: 3}
+      propertyPath: _follow
+      value: 
+      objectReference: {fileID: 1627939201}
+    - target: {fileID: 4554414600861588579, guid: 274c4c35ed05ea14c87492064b3cadfd,
         type: 3}
       propertyPath: _follow
       value: 
