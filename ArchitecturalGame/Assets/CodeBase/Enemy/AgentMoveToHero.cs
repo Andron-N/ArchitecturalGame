@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace CodeBase.Enemy
 {
-	public class AgentMoveToPlayer : Follow
+	public class AgentMoveToHero : Follow
 	{
 		private const float MinimalDistance = 1;
 
