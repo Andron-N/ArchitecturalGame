@@ -1,6 +1,4 @@
-﻿using CodeBase.Infrastructure.Factory;
-using CodeBase.Infrastructure.Services;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CodeBase.Enemy
 {
@@ -9,33 +7,16 @@ namespace CodeBase.Enemy
 		[SerializeField] private float _speed;
 
 		private Transform _heroTransform;
-		private IGameFactory _gameFactory;
 		private Vector3 _positionToLook;
 
-		private void Start()
-		{
-			_gameFactory = AllServices.Container.Single<IGameFactory>();
-
-			if(HeroExists())
-				InstantiateHeroTransform();
-			else
-				_gameFactory.HeroCreated += InstantiateHeroTransform;
-		}
+		public void Construct(Transform heroTransform) =>
+			_heroTransform = heroTransform;
 
 		private void Update()
 		{
-			if(Initialized())
+			if(_heroTransform)
 				RotateTowardsHero();
 		}
-
-		private bool HeroExists() =>
-			_gameFactory.HeroGameObject != null;
-
-		private void InstantiateHeroTransform() =>
-			_heroTransform = _gameFactory.HeroGameObject.transform;
-
-		private bool Initialized() =>
-			_heroTransform != null;
 
 		private void RotateTowardsHero()
 		{

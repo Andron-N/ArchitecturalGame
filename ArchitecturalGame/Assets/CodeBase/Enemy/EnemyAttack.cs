@@ -1,6 +1,5 @@
 ﻿using CodeBase.Hero;
 using CodeBase.Infrastructure.Factory;
-using CodeBase.Infrastructure.Services;
 using System.Linq;
 using UnityEngine;
 
@@ -11,10 +10,10 @@ namespace CodeBase.Enemy
 	{
 		[SerializeField] private EnemyAnimator _animator;
 
-		[SerializeField] private float _attackCooldown = 3f;
-		[SerializeField] private float _cleavage = 0.5f;
-		[SerializeField] private float _effectiveDistance = 0.5f;
-		[SerializeField] private float _damage = 10;
+		public float AttackCooldown = 3f;
+		public float Cleavage = 0.5f;
+		public float EffectiveDistance = 0.5f;
+		public float Damage = 10;
 
 		private IGameFactory _factory;
 		private Transform _heroTransform;
@@ -24,14 +23,11 @@ namespace CodeBase.Enemy
 		private Collider[] _hits = new Collider[1];
 		private bool _attackIsActive;
 
-		private void Awake()
-		{
-			_factory = AllServices.Container.Single<IGameFactory>();
+		public void Construct(Transform heroTransform) =>
+			_heroTransform = heroTransform;
 
+		private void Awake() =>
 			_layerMask = 1 << LayerMask.NameToLayer("Player");
-
-			_factory.HeroCreated += OnHeroCreated;
-		}
 
 		private void Update()
 		{
@@ -45,14 +41,14 @@ namespace CodeBase.Enemy
 		{
 			if(Hit(out Collider hit))
 			{
-				PhysicsDebug.DrawDebug(StartPoint(), _cleavage, 1);
-				hit.transform.GetComponent<HeroHealth>().TakeDamage(_damage);
+				PhysicsDebug.DrawDebug(StartPoint(), Cleavage, 1);
+				hit.transform.GetComponent<HeroHealth>().TakeDamage(Damage);
 			}
 		}
 
 		private void OnAttackEnded()
 		{
-			_currentAttackCooldown = _attackCooldown;
+			_currentAttackCooldown = AttackCooldown;
 			_isAttacking = false;
 		}
 
@@ -64,7 +60,7 @@ namespace CodeBase.Enemy
 
 		private bool Hit(out Collider hit)
 		{
-			int hitCount = Physics.OverlapSphereNonAlloc(StartPoint(), _cleavage, _hits, _layerMask);
+			int hitCount = Physics.OverlapSphereNonAlloc(StartPoint(), Cleavage, _hits, _layerMask);
 
 			hit = _hits.FirstOrDefault();
 
@@ -72,7 +68,7 @@ namespace CodeBase.Enemy
 		}
 
 		private Vector3 StartPoint() =>
-			new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * _effectiveDistance;
+			new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * EffectiveDistance;
 
 		private void UpdateCooldown()
 		{
@@ -92,8 +88,5 @@ namespace CodeBase.Enemy
 			_animator.PlayAttack();
 			_isAttacking = true;
 		}
-
-		private void OnHeroCreated() =>
-			_heroTransform = _factory.HeroGameObject.transform;
 	}
 }
