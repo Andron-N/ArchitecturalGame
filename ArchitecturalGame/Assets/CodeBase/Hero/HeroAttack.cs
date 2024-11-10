@@ -1,9 +1,9 @@
 ﻿using CodeBase.Data;
 using CodeBase.Enemy;
-using CodeBase.Infrastructure.Services;
-using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
+using CodeBase.Services;
 using CodeBase.Services.Input;
+using CodeBase.Services.PersistentProgress;
 using UnityEngine;
 
 namespace CodeBase.Hero

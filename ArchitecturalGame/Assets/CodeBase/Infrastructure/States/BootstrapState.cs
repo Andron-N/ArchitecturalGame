@@ -1,10 +1,10 @@
 ﻿using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.Factory;
-using CodeBase.Infrastructure.Services;
-using CodeBase.Infrastructure.Services.PersistentProgress;
-using CodeBase.Infrastructure.Services.SaveLoad;
-using CodeBase.Infrastructure.Services.StaticData;
+using CodeBase.Services;
 using CodeBase.Services.Input;
+using CodeBase.Services.PersistentProgress;
+using CodeBase.Services.SaveLoad;
+using CodeBase.Services.StaticData;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.States

@@ -1,8 +1,8 @@
 ﻿using CodeBase.CameraLogic;
 using CodeBase.Hero;
 using CodeBase.Infrastructure.Factory;
-using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
+using CodeBase.Services.PersistentProgress;
 using CodeBase.UI;
 using System;
 using UnityEngine;

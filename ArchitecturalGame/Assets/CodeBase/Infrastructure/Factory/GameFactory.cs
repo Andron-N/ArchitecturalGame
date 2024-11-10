@@ -1,8 +1,8 @@
 ﻿using CodeBase.Enemy;
 using CodeBase.Infrastructure.AssetManagement;
-using CodeBase.Infrastructure.Services.PersistentProgress;
-using CodeBase.Infrastructure.Services.StaticData;
 using CodeBase.Logic;
+using CodeBase.Services.PersistentProgress;
+using CodeBase.Services.StaticData;
 using CodeBase.StaticData;
 using CodeBase.UI;
 using System.Collections.Generic;
