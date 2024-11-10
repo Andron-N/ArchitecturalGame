@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CodeBase.Enemy
 {
 	[RequireComponent(typeof(EnemyAttack))]
 	public class CheckAttackRange : MonoBehaviour
 	{
-		[FormerlySerializedAs("_attack")] [SerializeField] private EnemyAttack _enemyAttack;
+		[SerializeField] private EnemyAttack _enemyAttack;
 		[SerializeField] private TriggerObserver _triggerObserver;
 
 		private void Start()

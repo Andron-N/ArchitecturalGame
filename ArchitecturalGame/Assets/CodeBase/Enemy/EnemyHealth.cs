@@ -8,6 +8,7 @@ namespace CodeBase.Enemy
 	public class EnemyHealth : MonoBehaviour, IHealth
 	{
 		[SerializeField] private EnemyAnimator _animator;
+
 		[SerializeField] private float _current;
 		[SerializeField] private float _max;
 
