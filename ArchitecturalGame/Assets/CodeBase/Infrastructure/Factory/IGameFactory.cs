@@ -16,12 +16,12 @@ namespace CodeBase.Infrastructure.Factory
 
 		GameObject CreateHud();
 
-		void Cleanup();
-
-		void Register(ISavedProgressReader savedProgress);
+		void CreateSpawner(Vector3 at, string spawnerId, MonsterTypeId monsterTypeId);
 
 		GameObject CreateMonster(MonsterTypeId typeId, Transform parent);
 
 		LootPiece CreateLoot();
+
+		void Cleanup();
 	}
 }

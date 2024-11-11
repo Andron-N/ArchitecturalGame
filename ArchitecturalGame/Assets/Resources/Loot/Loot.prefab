@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6573276039690250080}
   - component: {fileID: 5186074521695895453}
+  - component: {fileID: -3570138674198896700}
   - component: {fileID: 5924400236559601546}
   m_Layer: 16
   m_Name: Loot
@@ -154,6 +155,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 1, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3570138674198896700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7880382966684822008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0c8477039f47f1836f2ab395702342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
 --- !u!114 &5924400236559601546
 MonoBehaviour:
   m_ObjectHideFlags: 0
