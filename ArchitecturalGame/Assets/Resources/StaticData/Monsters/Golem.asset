@@ -17,6 +17,7 @@ MonoBehaviour:
   Damage: 14
   AttackCooldown: 3
   EffectiveDistance: 1
-  Cleavage: 1
   MoveSpeed: 1
+  MinLoot: 3
+  MaxLoot: 10
   Prefab: {fileID: 5261016488348296696, guid: fef8ee76ba818f84b81b11da6bda5ddf, type: 3}

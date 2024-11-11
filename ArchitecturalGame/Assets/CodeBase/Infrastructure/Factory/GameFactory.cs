@@ -1,7 +1,9 @@
-﻿using CodeBase.Enemy;
+﻿using CodeBase.Data;
+using CodeBase.Enemy;
 using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Logic;
 using CodeBase.Services.PersistentProgress;
+using CodeBase.Services.Randomizer;
 using CodeBase.Services.StaticData;
 using CodeBase.StaticData;
 using CodeBase.UI;
@@ -16,50 +18,20 @@ namespace CodeBase.Infrastructure.Factory
 	{
 		private readonly IAssets _assets;
 		private readonly IStaticDataService _staticData;
+		private readonly IRandomService _randomService;
+		private readonly IPersistentProgressService _progressService;
 
 		public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
 		public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
 		private GameObject _heroGameObject;
 
-		public GameFactory(IAssets assets, IStaticDataService staticData)
+		public GameFactory(IAssets assets, IStaticDataService staticData, IRandomService randomService, IAssets single, IPersistentProgressService progressService)
 		{
 			_assets = assets;
 			_staticData = staticData;
-		}
-
-		public GameObject CreateHero(GameObject at)
-		{
-			_heroGameObject = InstantiateRegistered(AssetPath.HeroPath, at.transform.position);
-			return _heroGameObject;
-		}
-
-		public GameObject CreateHud() =>
-			InstantiateRegistered(AssetPath.HudPath);
-
-		public GameObject CreateMonster(MonsterTypeId typeId, Transform parent)
-		{
-			MonsterStaticData monsterData = _staticData.ForMonster(typeId);
-			GameObject monster = Object.Instantiate(monsterData.Prefab, parent.position, Quaternion.identity, parent);
-
-			IHealth health = monster.GetComponent<IHealth>();
-			health.Current = monsterData.Hp;
-			health.Max = monsterData.Hp;
-
-			monster.GetComponent<ActorUI>().Construct(health);
-			monster.GetComponent<AgentMoveToHero>().Construct(_heroGameObject.transform);
-			monster.GetComponent<NavMeshAgent>().speed = monsterData.MoveSpeed;
-
-			EnemyAttack attack = monster.GetComponent<EnemyAttack>();
-			attack.Construct(_heroGameObject.transform);
-			attack.Damage = monsterData.Damage;
-			attack.AttackCooldown = monsterData.AttackCooldown;
-			attack.EffectiveDistance = monsterData.EffectiveDistance;
-			attack.Cleavage = monsterData.Cleavage;
-
-			monster.GetComponent<AgentRotateToHero>()?.Construct(_heroGameObject.transform);
-
-			return monster;
+			_randomService = randomService;
+			_progressService = progressService;
 		}
 
 		public void Cleanup()
@@ -74,6 +46,56 @@ namespace CodeBase.Infrastructure.Factory
 				ProgressWriters.Add(progressWriter);
 
 			ProgressReaders.Add(progressReader);
+		}
+
+		public GameObject CreateHero(GameObject at)
+		{
+			_heroGameObject = InstantiateRegistered(AssetPath.HeroPath, at.transform.position);
+			return _heroGameObject;
+		}
+
+		public GameObject CreateHud()
+		{
+			GameObject hud = InstantiateRegistered(AssetPath.HudPath);
+			hud.GetComponentInChildren<LootCounter>().Construct(_progressService.Progress.WorldData);
+			return hud;
+		}
+
+		public GameObject CreateMonster(MonsterTypeId typeId, Transform parent)
+		{
+			MonsterStaticData monsterData = _staticData.ForMonster(typeId);
+			GameObject monster = Object.Instantiate(monsterData.Prefab, parent.position, Quaternion.identity, parent);
+
+			IHealth health = monster.GetComponent<IHealth>();
+			health.Current = monsterData.Hp;
+			health.Max = monsterData.Hp;
+
+			monster.GetComponent<ActorUI>().Construct(health);
+			monster.GetComponent<AgentMoveToHero>().Construct(_heroGameObject.transform);
+			monster.GetComponent<NavMeshAgent>().speed = monsterData.MoveSpeed;
+
+			LootSpawner lootSpawner = monster.GetComponentInChildren<LootSpawner>();
+			lootSpawner.SetLoot(monsterData.MinLoot, monsterData.MaxLoot);
+			lootSpawner.Construct(this, _randomService);
+
+			EnemyAttack attack = monster.GetComponent<EnemyAttack>();
+			attack.Construct(_heroGameObject.transform);
+			attack.Damage = monsterData.Damage;
+			attack.AttackCooldown = monsterData.AttackCooldown;
+			attack.EffectiveDistance = monsterData.EffectiveDistance;
+
+			monster.GetComponent<AgentRotateToHero>()?.Construct(_heroGameObject.transform);
+
+			return monster;
+		}
+
+		public LootPiece CreateLoot()
+		{
+			LootPiece lootPiece = InstantiateRegistered(AssetPath.Loot).GetComponent<LootPiece>();
+
+			lootPiece.Construct(_progressService.Progress.WorldData);
+
+			return lootPiece;
 		}
 
 		private GameObject InstantiateRegistered(string prefabPath, Vector3 at)

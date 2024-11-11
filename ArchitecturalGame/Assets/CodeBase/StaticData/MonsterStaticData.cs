@@ -7,23 +7,20 @@ namespace CodeBase.StaticData
 	{
 		public MonsterTypeId MonsterTypeId;
 
-		[Range(1, 100)]
 		public int Hp;
-
-		[Range(1f, 30f)]
 		public float Damage;
 
-		[Range(0.1f, 30f)]
+		[Range(0.1f, 100f)]
 		public float AttackCooldown;
 
 		[Range(0.5f, 1f)]
 		public float EffectiveDistance;
 
-		[Range(0.5f, 1f)]
-		public float Cleavage;
-
 		[Range(0.5f, 30f)]
 		public float MoveSpeed;
+
+		public int MinLoot;
+		public int MaxLoot;
 
 		public GameObject Prefab;
 	}

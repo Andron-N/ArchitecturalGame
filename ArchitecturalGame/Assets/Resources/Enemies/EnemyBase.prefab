@@ -44,6 +44,7 @@ Transform:
   - {fileID: 6034277167380274839}
   - {fileID: 8033024545566720634}
   - {fileID: 1132543012529273636}
+  - {fileID: 8639032063841669498}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95206231959375140
@@ -156,11 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33bd5c9c47644b58fe00e9c1db6d3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackCooldown: 3
+  Cleavage: 0.5
+  EffectiveDistance: 0.5
+  Damage: 10
   _animator: {fileID: 4922263076014127179}
-  _attackCooldown: 3
-  _cleavage: 0.7
-  _effectiveDistance: 0.7
-  _damage: 10
 --- !u!114 &5646933951903819918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +594,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2219136325414639327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8639032063841669498}
+  - component: {fileID: 4380143205298010249}
+  m_Layer: 0
+  m_Name: LootSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8639032063841669498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219136325414639327}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4665124114459090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4380143205298010249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219136325414639327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53ceef327a7481d93ae74fa3e42ca61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyDeath: {fileID: 4554414600861588579}
 --- !u!1 &2672093935199967756
 GameObject:
   m_ObjectHideFlags: 0

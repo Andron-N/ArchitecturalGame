@@ -41,7 +41,7 @@ namespace CodeBase.Enemy
 		{
 			if(Hit(out Collider hit))
 			{
-				PhysicsDebug.DrawDebug(StartPoint(), Cleavage, 1);
+				//PhysicsDebug.DrawDebug(StartPoint(), Cleavage, 1);
 				hit.transform.GetComponent<HeroHealth>().TakeDamage(Damage);
 			}
 		}
