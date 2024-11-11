@@ -15,14 +15,6 @@ namespace CodeBase.UI
 			_health.HealthChanged += UpdateHpBar;
 		}
 
-		private void Start()
-		{
-			IHealth health = GetComponent<IHealth>();
-
-			if(health != null)
-				Construct(health);
-		}
-
 		private void OnDestroy() =>
 			_health.HealthChanged -= UpdateHpBar;
 
