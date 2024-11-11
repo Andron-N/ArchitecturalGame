@@ -26,7 +26,7 @@ namespace CodeBase.Infrastructure.Factory
 
 		private GameObject _heroGameObject;
 
-		public GameFactory(IAssets assets, IStaticDataService staticData, IRandomService randomService, IAssets single, IPersistentProgressService progressService)
+		public GameFactory(IAssets assets, IStaticDataService staticData, IRandomService randomService, IPersistentProgressService progressService)
 		{
 			_assets = assets;
 			_staticData = staticData;
