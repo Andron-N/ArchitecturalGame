@@ -6,11 +6,6 @@ namespace CodeBase.Hero
 {
 	public class HeroAnimator : MonoBehaviour, IAnimationStateReader
 	{
-		public event Action<AnimatorState> StateEntered;
-		public event Action<AnimatorState> StateExited;
-
-		public AnimatorState State { get; private set; }
-
 		private static readonly int MoveHash = Animator.StringToHash("Walking");
 		private static readonly int AttackHash = Animator.StringToHash("AttackNormal");
 		private static readonly int HitHash = Animator.StringToHash("Hit");
@@ -22,8 +17,13 @@ namespace CodeBase.Hero
 		private readonly int _walkingStateHash = Animator.StringToHash("Run");
 		private readonly int _deathStateHash = Animator.StringToHash("Die");
 
+		public AnimatorState State { get; private set; }
+
 		[SerializeField] private Animator _animator;
 		[SerializeField] private CharacterController _characterController;
+
+		public event Action<AnimatorState> StateEntered;
+		public event Action<AnimatorState> StateExited;
 
 		private void Update()
 		{

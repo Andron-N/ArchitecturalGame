@@ -6,14 +6,12 @@ namespace CodeBase.Logic
 {
 	public class SaveTrigger : MonoBehaviour
 	{
-		private ISaveLoadService _saveLoadService;
-
 		[SerializeField] private BoxCollider _collider;
 
-		private void Awake()
-		{
+		private ISaveLoadService _saveLoadService;
+
+		private void Awake() =>
 			_saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-		}
 
 		private void OnTriggerEnter(Collider other)
 		{

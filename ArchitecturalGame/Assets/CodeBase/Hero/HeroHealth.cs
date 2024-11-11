@@ -9,12 +9,6 @@ namespace CodeBase.Hero
 	[RequireComponent(typeof(HeroAnimator))]
 	public class HeroHealth : MonoBehaviour, ISavedProgress, IHealth
 	{
-		[SerializeField] private HeroAnimator _animator;
-
-		public event Action HealthChanged;
-
-		private State _state;
-
 		public float Current
 		{
 			get => _state.CurrentHp;
@@ -33,6 +27,12 @@ namespace CodeBase.Hero
 			get => _state.MaxHp;
 			set => _state.MaxHp = value;
 		}
+
+		[SerializeField] private HeroAnimator _animator;
+
+		private State _state;
+
+		public event Action HealthChanged;
 
 		public void LoadProgress(PlayerProgress progress)
 		{

@@ -10,12 +10,13 @@ namespace CodeBase.Infrastructure.States
 {
 	public class GameStateMachine
 	{
-		private readonly Dictionary<Type, IExitableState> _states;
-		private IExitableState _activeState;
+		private readonly Dictionary<Type, IExcitableState> _states;
+
+		private IExcitableState _activeState;
 
 		public GameStateMachine(SceneLoader sceneLoader, LoadingCurtain curtain, AllServices services)
 		{
-			_states = new Dictionary<Type, IExitableState>() {
+			_states = new Dictionary<Type, IExcitableState>() {
 				[typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
 				[typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain, services.Single<IGameFactory>(), services.Single<IPersistentProgressService>()),
 				[typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>()),
@@ -35,7 +36,7 @@ namespace CodeBase.Infrastructure.States
 			state.Enter(payload);
 		}
 
-		private TState ChangeState<TState>() where TState : class, IExitableState
+		private TState ChangeState<TState>() where TState : class, IExcitableState
 		{
 			_activeState?.Exit();
 
@@ -45,7 +46,7 @@ namespace CodeBase.Infrastructure.States
 			return state;
 		}
 
-		private TState GetState<TState>() where TState : class, IExitableState =>
+		private TState GetState<TState>() where TState : class, IExcitableState =>
 			_states[typeof(TState)] as TState;
 	}
 }

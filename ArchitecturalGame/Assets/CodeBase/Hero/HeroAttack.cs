@@ -11,10 +11,10 @@ namespace CodeBase.Hero
 	[RequireComponent(typeof(HeroAnimator), typeof(CharacterController))]
 	public class HeroAttack : MonoBehaviour, ISavedProgressReader
 	{
+		private static int _layerMask;
+
 		[SerializeField] private HeroAnimator _heroAnimator;
 		[SerializeField] private CharacterController _characterController;
-
-		private static int _layerMask;
 
 		private IInputService _input;
 		private Collider[] _hits = new Collider[3];

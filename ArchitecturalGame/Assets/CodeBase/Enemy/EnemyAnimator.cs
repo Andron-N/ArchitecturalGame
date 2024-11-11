@@ -6,11 +6,6 @@ namespace CodeBase.Enemy
 {
 	public class EnemyAnimator : MonoBehaviour, IAnimationStateReader
 	{
-		public event Action<AnimatorState> StateEntered;
-		public event Action<AnimatorState> StateExited;
-
-		public AnimatorState State { get; private set; }
-
 		private static readonly int Attack = Animator.StringToHash("Attack_1");
 		private static readonly int Speed = Animator.StringToHash("Speed");
 		private static readonly int IsMoving = Animator.StringToHash("IsMoving");
@@ -22,7 +17,12 @@ namespace CodeBase.Enemy
 		private readonly int _walkingStateHash = Animator.StringToHash("Move");
 		private readonly int _deadStateHash = Animator.StringToHash("die");
 
+		public AnimatorState State { get; private set; }
+
 		[SerializeField] private Animator _animator;
+
+		public event Action<AnimatorState> StateEntered;
+		public event Action<AnimatorState> StateExited;
 
 		public void PlayHit() =>
 			_animator.SetTrigger(Hit);

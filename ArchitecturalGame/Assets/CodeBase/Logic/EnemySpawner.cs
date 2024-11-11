@@ -31,6 +31,12 @@ namespace CodeBase.Logic
 				Spawn();
 		}
 
+		public void UpdateProgress(PlayerProgress progress)
+		{
+			if(_slain)
+				progress.KillData.ClearedSpawners.Add(_id);
+		}
+
 		private void Spawn()
 		{
 			GameObject monster = _factory.CreateMonster(_monsterTypeId, transform);
@@ -44,12 +50,6 @@ namespace CodeBase.Logic
 				_enemyDeath.Happened -= Slay;
 
 			_slain = true;
-		}
-
-		public void UpdateProgress(PlayerProgress progress)
-		{
-			if(_slain)
-				progress.KillData.ClearedSpawners.Add(_id);
 		}
 	}
 }

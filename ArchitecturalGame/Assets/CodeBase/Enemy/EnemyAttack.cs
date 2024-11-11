@@ -8,12 +8,12 @@ namespace CodeBase.Enemy
 	[RequireComponent(typeof(EnemyAnimator))]
 	public class EnemyAttack : MonoBehaviour
 	{
-		[SerializeField] private EnemyAnimator _animator;
-
 		public float AttackCooldown = 3f;
 		public float Cleavage = 0.5f;
 		public float EffectiveDistance = 0.5f;
 		public float Damage = 10;
+
+		[SerializeField] private EnemyAnimator _animator;
 
 		private IGameFactory _factory;
 		private Transform _heroTransform;
@@ -21,7 +21,7 @@ namespace CodeBase.Enemy
 		private bool _isAttacking;
 		private int _layerMask;
 		private Collider[] _hits = new Collider[1];
-		private bool _attackIsActive;
+		private bool _isActiveAttack;
 
 		public void Construct(Transform heroTransform) =>
 			_heroTransform = heroTransform;
@@ -53,10 +53,10 @@ namespace CodeBase.Enemy
 		}
 
 		public void EnableAttack() =>
-			_attackIsActive = true;
+			_isActiveAttack = true;
 
 		public void DisableAttack() =>
-			_attackIsActive = false;
+			_isActiveAttack = false;
 
 		private bool Hit(out Collider hit)
 		{
@@ -80,7 +80,7 @@ namespace CodeBase.Enemy
 			_currentAttackCooldown <= 0;
 
 		private bool CanAttack() =>
-			_attackIsActive && !_isAttacking && CooldownIsUp();
+			_isActiveAttack && !_isAttacking && CooldownIsUp();
 
 		private void StartAttack()
 		{
